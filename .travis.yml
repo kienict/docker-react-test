@@ -1,3 +1,4 @@
+language: generic
 sudo: required
 services:
         - docker
@@ -6,4 +7,4 @@ before_install:
         - docker build -t kienict/docker-react-test -f Dockerfile.dev .
 
 script:
-        - docker run kienict/docker-react-test npm run test -- --coverage
+        - docker run -e CI=true kienict/docker-react-test npm run test
